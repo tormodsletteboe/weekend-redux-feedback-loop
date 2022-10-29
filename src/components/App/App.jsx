@@ -5,6 +5,7 @@ import './App.css';
 import FeedBackComp from '../FeedBackComp/FeedBackComp';
 import Review from '../Review/Review';
 import Admin from '../Admin/Admin';
+import ThankYou from '../ThankYou/ThankYou';
 //router imports
 import { HashRouter as Router, Route, Link } from 'react-router-dom';
 
@@ -28,7 +29,7 @@ function App() {
       });
   };
 
- 
+
 
   return (
     <div className='App'>
@@ -74,10 +75,13 @@ function App() {
           />
         </Route>
         <Route path="/review" exact>
-          <Review sendDataToDataBase={postFeedBack}/>
+          <Review sendDataToDataBase={postFeedBack} />
         </Route>
         <Route path="/admin" exact>
           <Admin />
+        </Route>
+        <Route path="/thankyou" exact>
+          <ThankYou />
         </Route>
       </Router>
     </div>
