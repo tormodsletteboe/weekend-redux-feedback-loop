@@ -1,36 +1,16 @@
 import React from 'react';
 import axios from 'axios';
 import './App.css';
-import { useState, useEffect } from 'react';
-import FeedBackComp from '../FeedBackComp/FeedBackComp';
 
+import FeedBackComp from '../FeedBackComp/FeedBackComp';
+import Review from '../Review/Review';
+import Admin from '../Admin/Admin';
 //router imports
 import { HashRouter as Router, Route, Link } from 'react-router-dom';
 
 function App() {
 
-  function handleOnClick() {
-    const testOjb = {
-      feeling: 5,
-      understanding: 2,
-      support: 3,
-      comments: 'ayayayayay'
-    };
-    postFeedBack(testOjb);
-  }
-
-  //local state
-  const [feedBacks, setFeedBacks] = useState([]);
-  //rbody.feeling,rbody.understanding,rbody.support,rbody.comments
-
-  //call on load 
-  useEffect(() => {
-    getFeedBacks();
-  }, []);
-
-
-
-  //setup axis calls here GET and POST
+  //setup axios calls here POST, GET is in the Admin.jsx page
   //POST ROUTE
   const postFeedBack = (feedBack) => {
     axios({
@@ -39,29 +19,15 @@ function App() {
       data: feedBack
     })
       .then((response) => {
-        //TODO: I don't know if I need this might remove it later
-        getFeedBacks();
+        //no need to call getFeedBacks here, will call it when admin page loads
+        console.log(response.data);
       })
       .catch((error) => {
         console.error('POST /feedbacks is broken 😢', error);
       });
   };
 
-  //GET ROUTE
-  const getFeedBacks = () => {
-    axios({
-      method: 'GET',
-      url: '/feedbacks',
-    })
-      .then((response) => {
-        //TODO: might do dispatch here to the store
-        setFeedBacks(response.data);
-
-      })
-      .catch((error) => {
-        console.error('GET /feedbacks is broken 😢', error);
-      })
-  };
+ 
 
   return (
     <div className='App'>
@@ -98,7 +64,7 @@ function App() {
           />
         </Route>
         <Route path="/comments" exact>
-        <FeedBackComp title='Any comments you want to leave?'
+          <FeedBackComp title='Any comments you want to leave?'
             labelText='Comments'
             inputType='text'
             pushAddress='/review'
@@ -107,37 +73,10 @@ function App() {
           />
         </Route>
         <Route path="/review" exact>
-        {/* TODO: */}
+          <Review sendDataToDataBase={postFeedBack}/>
         </Route>
         <Route path="/admin" exact>
-          {/* TODO:move this to a component */}
-          <h1>review</h1>
-          <table>
-            <thead>
-              <tr>
-                <th>id</th>
-                <th>feeling</th>
-                <th>understanding</th>
-                <th>support</th>
-                <th>comments</th>
-                <th>flagged</th>
-                <th>date</th>
-              </tr>
-            </thead>
-            <tbody>
-              {feedBacks.map((feedback) => (
-                <tr key={feedback.id}>
-                  <td>{feedback.id}</td>
-                  <td>{feedback.feeling}</td>
-                  <td>{feedback.understanding}</td>
-                  <td>{feedback.support}</td>
-                  <td>{feedback.comments}</td>
-                  <td>{feedback.flagged.toString()}</td>
-                  <td>{feedback.date}</td>
-                </tr>
-              ))}
-            </tbody>
-          </table>
+          <Admin />
         </Route>
       </Router>
     </div>
