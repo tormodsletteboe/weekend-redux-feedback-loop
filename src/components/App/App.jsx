@@ -76,6 +76,7 @@ function App() {
             inputType='number'
             pushAddress='/understanding'
             dispatchAddr='SET_FEELING'
+            shelfname='feeling'
           />
         </Route>
         <Route path="/understanding" exact>
@@ -84,6 +85,7 @@ function App() {
             inputType='number'
             pushAddress='/support'
             dispatchAddr='SET_UNDERSTANDING'
+            shelfname='understanding'
           />
         </Route>
         <Route path="/support" exact>
@@ -92,6 +94,7 @@ function App() {
             inputType='number'
             pushAddress='/comments'
             dispatchAddr='SET_SUPPORT'
+            shelfname='support'
           />
         </Route>
         <Route path="/comments" exact>
@@ -100,6 +103,7 @@ function App() {
             inputType='text'
             pushAddress='/review'
             dispatchAddr='SET_COMMENT'
+            shelfname='comment'
           />
         </Route>
         <Route path="/review" exact>
