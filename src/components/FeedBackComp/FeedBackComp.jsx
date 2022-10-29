@@ -16,7 +16,8 @@ function FeedBackComp({ title, labelText, inputType, pushAddress, dispatchAddr, 
         setFeedBack(shelfFromStore);
     }, [params.id])
 
-    const handleOnClick = () => {
+    const handleOnClick = (evt) => {
+        evt.preventDefault();
         // console.log(feedBack);
         dispatch({
             type: dispatchAddr,
