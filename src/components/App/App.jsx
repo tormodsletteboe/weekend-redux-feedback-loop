@@ -9,6 +9,33 @@ import { HashRouter as Router, Route, Link } from 'react-router-dom';
 function App() {
 
   //setup axis calls here GET and POST
+  const postFeedBack = (feedBack) => {
+    axios({
+      method: 'POST',
+      url: '/feedbacks',
+      data: feedBack
+    })
+      .then((response) => {
+        //TODO: I don't know if I need this might remove it later
+        getFeedBacks();
+      })
+      .catch((error) => {
+        console.error('POST /feedbacks is broken 😢', error);
+      });
+  };
+
+  const getFeedBacks = () =>{
+    axios({
+      method: 'GET',
+      url: '/feedbacks',
+    })
+    .then((response)=>{
+      //TODO: might do dispatch here to the store
+    })
+    .catch((error)=>{
+      console.error('GET /feedbacks is broken 😢', error);
+    })
+  };
 
   return (
     <div className='App'>
