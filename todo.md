@@ -1,4 +1,4 @@
-[] remove temp h1 and link
+[x] remove temp h1 and link
 [X] set up a router route to the database
 [X] setup GET POST pool queries
 [X] tested GET and POST pool queries with postman
