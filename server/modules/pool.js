@@ -37,5 +37,14 @@ if (process.env.DATABASE_URL) {
         idleTimeoutMillis: 30000, // how long a client is allowed to remain idle before being closed
     };
 }
+const pool = new pg.Pool(config);
 
-module.exports = new pg.Pool(config);
+pool.on("connect", () => {
+    console.log("connected to postgres");
+  });
+  
+  pool.on("error", (err) => {
+    console.log("error connecting to postgres", err);
+  });
+
+module.exports = pool;
