@@ -1,6 +1,7 @@
 import { useSelector } from 'react-redux';
-import { useEffect } from 'react';
-import { useParams } from 'react-router-dom'
+// import { useEffect } from 'react';
+import { useParams,useHistory } from 'react-router-dom'
+
 
 function Review({sendDataToDataBase}) {
     const params = useParams();
