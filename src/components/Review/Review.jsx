@@ -18,7 +18,7 @@ function Review({sendDataToDataBase}) {
             feeling: store.feeling,
             understanding: store.understanding,
             support: store.support,
-            comment: store.comment
+            comments: store.comment
         });
     };
     return (

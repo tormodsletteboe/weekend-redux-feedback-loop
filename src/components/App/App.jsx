@@ -13,6 +13,7 @@ function App() {
   //setup axios calls here POST, GET is in the Admin.jsx page
   //POST ROUTE
   const postFeedBack = (feedBack) => {
+    console.log(feedBack.comments);
     axios({
       method: 'POST',
       url: '/feedbacks',
