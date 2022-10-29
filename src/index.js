@@ -11,19 +11,47 @@ import logger from 'redux-logger';
 
 
 //store shelves
-const uppershelf = (state='',action)=>{
+const feeling = (state='',action)=>{
     switch(action.type){
-        case 'SET_IT':
+        case 'SET_FEELING':
             return action.payload;
     }
     return state;
 };
 
-//store itself
+const understanding = (state='',action)=>{
+    switch(action.type){
+        case 'SET_UNDERSTANDING':
+            return action.payload;
+    }
+    return state;
+};
+
+const support = (state='',action)=>{
+    switch(action.type){
+        case 'SET_SUPPORT':
+            return action.payload;
+    }
+    return state;
+};
+
+const comment = (state='',action)=>{
+    switch(action.type){
+        case 'SET_COMMENT':
+            return action.payload;
+    }
+    return state;
+};
+
+//store combiner, allows for useSelector store dot operator
 const reduxStore = createStore(
     combineReducers({
         //store shelves
-        uppershelf
+        feeling,
+        understanding,
+        support,
+        comment
+
     }), applyMiddleware(logger)
 );
 

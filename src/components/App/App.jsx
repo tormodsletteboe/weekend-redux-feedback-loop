@@ -2,14 +2,14 @@ import React from 'react';
 import axios from 'axios';
 import './App.css';
 import { useState, useEffect } from 'react';
-
+import FeedBackComp from '../FeedBackComp/FeedBackComp';
 
 //router imports
 import { HashRouter as Router, Route, Link } from 'react-router-dom';
 
 function App() {
 
-  function handleOnClick(){
+  function handleOnClick() {
     const testOjb = {
       feeling: 5,
       understanding: 2,
@@ -22,7 +22,7 @@ function App() {
   //local state
   const [feedBacks, setFeedBacks] = useState([]);
   //rbody.feeling,rbody.understanding,rbody.support,rbody.comments
-  
+
   //call on load 
   useEffect(() => {
     getFeedBacks();
@@ -71,33 +71,42 @@ function App() {
       </header>
       <Router>
         <Route path="/" exact>
-          <h1>feeling</h1>
-          <Link to='/understanding'>
-            <h1>go to understanding</h1>
-          </Link>
+          <FeedBackComp title='How are you feeling today?'
+            labelText='Feeling?'
+            inputType='number'
+            pushAddress='/understanding'
+            dispatchAddr='SET_FEELING'
+          />
         </Route>
         <Route path="/understanding" exact>
-          <h1>understanding</h1>
-
-          <button onClick={handleOnClick}>Test Post</button>
-
-          <Link to='/support'>
-            <h1>go to support</h1>
-          </Link>
+          <FeedBackComp title='How well are you understanding the content?'
+            labelText='Understanding?'
+            inputType='number'
+            pushAddress='/support'
+            dispatchAddr='SET_UNDERSTANDING'
+          />
         </Route>
         <Route path="/support" exact>
-          <h1>support</h1>
-          <Link to='/comments'>
-            <h1>go to comments</h1>
-          </Link>
+          <FeedBackComp title='How well are you being supported?'
+            labelText='Support?'
+            inputType='number'
+            pushAddress='/comments'
+            dispatchAddr='SET_SUPPORT'
+          />
         </Route>
         <Route path="/comments" exact>
-          <h1>comments</h1>
-          <Link to='/review'>
-            <h1>go to review</h1>
-          </Link>
+        <FeedBackComp title='Any comments you want to leave?'
+            labelText='Comments'
+            inputType='text'
+            pushAddress='/review'
+            dispatchAddr='SET_COMMENT'
+          />
         </Route>
         <Route path="/review" exact>
+        {/* TODO: */}
+        </Route>
+        <Route path="/admin" exact>
+          {/* TODO:move this to a component */}
           <h1>review</h1>
           <table>
             <thead>
