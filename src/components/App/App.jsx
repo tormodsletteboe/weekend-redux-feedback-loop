@@ -8,6 +8,8 @@ import { HashRouter as Router, Route, Link } from 'react-router-dom';
 
 function App() {
 
+  //setup axis calls here GET and POST
+
   return (
     <div className='App'>
       <header className='App-header'>
