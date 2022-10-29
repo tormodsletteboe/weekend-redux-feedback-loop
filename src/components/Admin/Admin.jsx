@@ -32,7 +32,7 @@ function Admin() {
     //delete route
     const deleteFeedBack = (event) => {
         //basically gets the data-id property that was added to the table tr that the button that initiated this function call belongs to
-                         //button.    td.         tr
+        //button.    td.         tr
         const id = event.target.parentElement.parentElement.dataset.id;
         // console.log(tr.dataset.id);
         axios({
@@ -45,9 +45,28 @@ function Admin() {
                 getFeedBacks(response.data);
             })
             .catch((error) => {
-                console.error('GET /feedbacks is broken 😢', error);
+                console.error('DELETE /feedbacks is broken 😢', error);
             });
-        
+
+    };
+
+    const flagFeedBack = (event) => {
+        //basically gets the data-id property that was added to the table tr that the button that initiated this function call belongs to
+        //button.    td.         tr
+        const id = event.target.parentElement.parentElement.dataset.id;
+        // console.log(tr.dataset.id);
+        axios({
+            method: 'PUT',
+            url: `/feedbacks/${id}`
+        })
+            .then((response) => {
+                console.log(response.data);
+                //one was deleted get data again
+                getFeedBacks(response.data);
+            })
+            .catch((error) => {
+                console.error('PUT /feedbacks is broken 😢', error);
+            });
     };
 
     return (
@@ -70,7 +89,9 @@ function Admin() {
                         <td>{feedback.understanding}</td>
                         <td>{feedback.support}</td>
                         <td>{feedback.comments}</td>
-                        <td>{feedback.flagged.toString()}</td>
+                        <td>{feedback.flagged.toString()}
+                            <button onClick={flagFeedBack}>🇳🇴</button>
+                        </td>
                         <td>
                             <button onClick={deleteFeedBack} >💀</button>
                         </td>

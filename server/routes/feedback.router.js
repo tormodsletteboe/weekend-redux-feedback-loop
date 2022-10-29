@@ -49,5 +49,18 @@ router.delete('/:id',(req,res)=>{
             res.sendStatus(500);
         });
 });
+//put route
+router.put('/:id',(req,res)=>{
+    let queryText = `UPDATE "feedback" SET "flagged" = NOT "flagged" WHERE "id" = $1;`;
+    let queryParams = [req.params.id];
+    pool.query(queryText,queryParams)
+        .then((dbRes)=>{
+            res.sendStatus(201);
+        })
+        .catch((error)=>{
+            console.error('error in router PUT pool query',error);
+            res.sendStatus(500);
+        });
+});
 module.exports = router;
 
