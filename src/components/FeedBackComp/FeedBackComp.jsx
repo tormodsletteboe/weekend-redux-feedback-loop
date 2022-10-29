@@ -31,12 +31,15 @@ function FeedBackComp({ title, labelText, inputType, pushAddress, dispatchAddr, 
     return (
         <div className="ReuseComp">
             <h1>{title}</h1>
-            <label>{labelText}</label>
-            {inputType === 'text' ?
-                <input onChange={handleOnChange} type={inputType} value={feedBack} />
-                : <input onChange={handleOnChange} type={inputType} value={feedBack} required />}
+            <form onSubmit={handleOnClick}>
+                <label>{labelText}</label>
+                {inputType === 'text' ?
+                    <input onChange={handleOnChange} type={inputType} value={feedBack} />
+                    : <input onChange={handleOnChange} type={inputType} value={feedBack} required />}
+                <button type='submit'>NEXT</button>
+            </form>
 
-            <button onClick={handleOnClick}>NEXT</button>
+
         </div>
     );
 }
