@@ -11,11 +11,19 @@ import logger from 'redux-logger';
 
 
 //store shelves
+const uppershelf = (state='',action)=>{
+    switch(action.type){
+        case 'SET_IT':
+            return action.payload;
+    }
+    return state;
+};
 
 //store itself
 const reduxStore = createStore(
     combineReducers({
         //store shelves
+        uppershelf
     }), applyMiddleware(logger)
 );
 
