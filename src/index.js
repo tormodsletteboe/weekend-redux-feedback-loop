@@ -11,34 +11,42 @@ import logger from 'redux-logger';
 
 
 //store shelves
-const feeling = (state='',action)=>{
-    switch(action.type){
+const feeling = (state = '0', action) => {
+    switch (action.type) {
         case 'SET_FEELING':
             return action.payload;
+        case 'RESET_STORE':
+            return '0';
     }
     return state;
 };
 
-const understanding = (state='',action)=>{
-    switch(action.type){
+const understanding = (state = '0', action) => {
+    switch (action.type) {
         case 'SET_UNDERSTANDING':
             return action.payload;
+        case 'RESET_STORE':
+            return '0';
     }
     return state;
 };
 
-const support = (state='',action)=>{
-    switch(action.type){
+const support = (state = '0', action) => {
+    switch (action.type) {
         case 'SET_SUPPORT':
             return action.payload;
+        case 'RESET_STORE':
+            return '0';
     }
     return state;
 };
 
-const comment = (state='',action)=>{
-    switch(action.type){
+const comment = (state = '', action) => {
+    switch (action.type) {
         case 'SET_COMMENT':
             return action.payload;
+        case 'RESET_STORE':
+            return '';
     }
     return state;
 };
@@ -58,6 +66,6 @@ const reduxStore = createStore(
 
 //Connect the store to my app
 ReactDOM.render(<Provider store={reduxStore}>
-                    <App />
-               </Provider>, document.getElementById('root'));
+    <App />
+</Provider>, document.getElementById('root'));
 registerServiceWorker();

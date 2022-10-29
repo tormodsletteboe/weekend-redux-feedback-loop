@@ -6,7 +6,7 @@ import { useParams,useHistory } from 'react-router-dom'
 function Review({sendDataToDataBase}) {
     const params = useParams();
     const store = useSelector((store)=>store);
-
+    const history = useHistory();
     // TODO: do I need use effect here?????
     // useEffect(() => {
 
@@ -21,6 +21,7 @@ function Review({sendDataToDataBase}) {
             support: store.support,
             comments: store.comment
         });
+        history.push('/thankyou');
     };
     return (
         <div>

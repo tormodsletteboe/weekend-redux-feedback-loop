@@ -5,7 +5,7 @@ import { useParams } from 'react-router-dom';
 
 function FeedBackComp({ title, labelText, inputType, pushAddress, dispatchAddr, shelfname }) {
 
-    const [feedBack, setFeedBack] = useState(-1);
+    const [feedBack, setFeedBack] = useState('0');
 
     const history = useHistory();
     const dispatch = useDispatch();
@@ -34,7 +34,7 @@ function FeedBackComp({ title, labelText, inputType, pushAddress, dispatchAddr, 
             <form onSubmit={handleOnClick}>
                 <label>{labelText}</label>
                 {inputType === 'text' ?
-                    <input onChange={handleOnChange} type={inputType} value={feedBack} />
+                    <input onChange={handleOnChange} type={inputType} value={feedBack} placeholder='...' />
                     : <input onChange={handleOnChange} type={inputType} value={feedBack} required min={0} max={6}/>}
                 <button type='submit'>NEXT</button>
             </form>
