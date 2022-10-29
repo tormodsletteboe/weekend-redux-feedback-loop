@@ -1,38 +1,41 @@
-import {useHistory} from 'react-router-dom';
-import {useDispatch,useSelector} from 'react-redux';
-import {useState,useEffect} from 'react';
+import { useHistory } from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux';
+import { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 
-function FeedBackComp({title,labelText,inputType,pushAddress,dispatchAddr,shelfname}){
-    
-    const [feedBack,setFeedBack] = useState(-1);
+function FeedBackComp({ title, labelText, inputType, pushAddress, dispatchAddr, shelfname }) {
+
+    const [feedBack, setFeedBack] = useState(-1);
 
     const history = useHistory();
     const dispatch = useDispatch();
     const params = useParams();
-    const shelfFromStore = useSelector((store)=>store[shelfname]);
+    const shelfFromStore = useSelector((store) => store[shelfname]);
 
-    useEffect(()=>{
+    useEffect(() => {
         setFeedBack(shelfFromStore);
-    },[params.id])
+    }, [params.id])
 
-    const handleOnClick = ()=>{
+    const handleOnClick = () => {
         // console.log(feedBack);
         dispatch({
             type: dispatchAddr,
-            payload:feedBack
+            payload: feedBack
         })
         history.push(pushAddress);
     }
-    const handleOnChange = (event)=>{
+    const handleOnChange = (event) => {
         setFeedBack(event.target.value);
     };
 
-    return(
+    return (
         <div className="ReuseComp">
             <h1>{title}</h1>
             <label>{labelText}</label>
-            <input onChange={handleOnChange} type={inputType} value ={feedBack} />
+            {inputType === 'text' ?
+                <input onChange={handleOnChange} type={inputType} value={feedBack} />
+                : <input onChange={handleOnChange} type={inputType} value={feedBack} required />}
+
             <button onClick={handleOnClick}>NEXT</button>
         </div>
     );
