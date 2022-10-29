@@ -35,7 +35,7 @@ function FeedBackComp({ title, labelText, inputType, pushAddress, dispatchAddr, 
                 <label>{labelText}</label>
                 {inputType === 'text' ?
                     <input onChange={handleOnChange} type={inputType} value={feedBack} />
-                    : <input onChange={handleOnChange} type={inputType} value={feedBack} required />}
+                    : <input onChange={handleOnChange} type={inputType} value={feedBack} required min={0} max={6}/>}
                 <button type='submit'>NEXT</button>
             </form>
 

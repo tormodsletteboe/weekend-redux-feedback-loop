@@ -8,6 +8,7 @@
     - made 1 shelf per data point
 [X] create a reausable component, just pass args based on route, maybe use an array of objects with text and input type and map that
     - used props
-[] create a review component
-    [] send reveiw to database
+[X] create a review component
+    [X] send reveiw to database
+[X] add form to the FeedBackComp to handle user validation
 []
