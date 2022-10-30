@@ -12,8 +12,12 @@
     [X] send reveiw to database
 [X] add form to the FeedBackComp to handle user validation
 [X] add a thank you page that resets survey and takes user to fron page
-[] add delete option on admin page
-    [] prompt user before deleting
-[] add flag option on admin page
+[X] add delete option on admin page
+    [X] prompt user before deleting
+[X] add flag option on admin page
 [] use material ui
-[] make sure most recent feedback is at the top of table 
+    [] feedbackcomp
+    [] review
+    [] admin
+    [] thank you
+[x] make sure most recent feedback is at the top of table 
