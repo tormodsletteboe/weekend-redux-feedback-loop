@@ -90,13 +90,12 @@ function FeedBackComp({ title, labelText, inputType, pushAddress, dispatchAddr, 
                 <CardActions sx={{ justifyContent: 'space-evenly' }}>
 
                     {inputType === 'text' ?
-                        <TextField onChange={handleOnChange} type={inputType} value={feedBack} placeholder='leave a comment ...' />
+                        <TextField onChange={handleOnChange} type={inputType} value={feedBack} placeholder='leave a comment ...' ></TextField>
                         : <TextField  helperText='Pick one'
                             onChange={handleOnChange}
                             value={feedBack}
                             label="Select"
                             select
-
                         >
                             {ranges.map((option) => (
                             <MenuItem key={option.value} value={option.value}>

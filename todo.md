@@ -19,5 +19,6 @@
     [] feedbackcomp
     [] review
     [] admin
-    [] thank you
+    [X] thank you
 [x] make sure most recent feedback is at the top of table 
+[] issue with icons on button causing a crash, probably because parenet.parent etc
