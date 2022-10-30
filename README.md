@@ -20,7 +20,14 @@ The feedback survey submitted by the user will be sent to a database. An admin u
 
 ## Screen Shot
 
-![Screenshot](GalleryUI.jpeg)
+![Screenshot](public/images/feeling.jpg)
+![Screenshot](public/images/understanding.jpg)
+![Screenshot](public/images/support.jpg)
+![Screenshot](public/images/comments.jpg)
+![Screenshot](public/images/review.jpg)
+![Screenshot](public/images/thankyou.jpg)
+![Screenshot](public/images/admin.jpg)
+
 
 
 

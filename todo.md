@@ -22,4 +22,4 @@
         [] issue with icons on button causing a crash, probably because parenet.parent etc
     [X] thank you
 [x] make sure most recent feedback is at the top of table 
-[] add screen shots to readme
+[x] add screen shots to readme
