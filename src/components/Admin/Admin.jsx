@@ -108,6 +108,7 @@ function Admin() {
                     </TableRow>
                 </TableHead>
                 <TableBody>
+
                     {feedBacks.map((feedback) => (
                         <TableRow key={feedback.id} data-id={feedback.id} sx={{ '&:last-child td, &:last-child th': { border: 0 } }}>
 
@@ -116,6 +117,7 @@ function Admin() {
                             <TableCell align="center">{feedback.support}</TableCell>
                             <TableCell align="center">{feedback.comments}</TableCell>
                             <TableCell align="center">
+                                {/* {TODO: the icons causes an issue when clicked, since tr is no longer parent.parent} */}
                                 {feedback.flagged ? <Button variant="contained"
                                                             size="small"
                                                             onClick={flagFeedBack} 

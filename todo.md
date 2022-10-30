@@ -16,9 +16,9 @@
     [X] prompt user before deleting
 [X] add flag option on admin page
 [] use material ui
-    [] feedbackcomp
-    [] review
+    [x] feedbackcomp
+    [x] review
     [] admin
+        [] issue with icons on button causing a crash, probably because parenet.parent etc
     [X] thank you
 [x] make sure most recent feedback is at the top of table 
-[] issue with icons on button causing a crash, probably because parenet.parent etc

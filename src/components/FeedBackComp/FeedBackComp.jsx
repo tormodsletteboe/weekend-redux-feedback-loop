@@ -15,31 +15,31 @@ import MenuItem from '@mui/material/MenuItem';
 const ranges = [
     {
         value: '0',
-        label: 'Bad-0',
+        label: '0 - Bad',
     },
     {
         value: '1',
-        label: 'OK-1',
+        label: '1 - OK',
     },
     {
         value: '2',
-        label: 'Good-2',
+        label: '2 - Good',
     },
     {
         value: '3',
-        label: 'Better-3',
+        label: '3 - Better',
     },
     {
         value: '4',
-        label: 'Nice-4',
+        label: '4 - Nice',
     },
     {
         value: '5',
-        label: 'WOW!-5',
+        label: '5 - WOW!',
     },
     {
         value: '6',
-        label: 'DUDE!!-6',
+        label: '6 - DUDE!!',
     },
 ];
 
@@ -91,7 +91,7 @@ function FeedBackComp({ title, labelText, inputType, pushAddress, dispatchAddr, 
 
                     {inputType === 'text' ?
                         <TextField onChange={handleOnChange} type={inputType} value={feedBack} placeholder='leave a comment ...' ></TextField>
-                        : <TextField  helperText='..'
+                        : <TextField  helperText='Choose a value 0 - 6'
                             onChange={handleOnChange}
                             value={feedBack}
                             label="Select"
