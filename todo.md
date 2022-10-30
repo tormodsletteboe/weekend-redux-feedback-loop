@@ -23,3 +23,4 @@
     [X] thank you
 [x] make sure most recent feedback is at the top of table 
 [x] add screen shots to readme
+[] should move reset redux store dispatch to the submit on review page, take survey again should only do push
