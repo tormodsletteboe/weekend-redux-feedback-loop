@@ -82,6 +82,10 @@ Link to software that is required to develop this website.
     - All done,
      or
     - User can choose to take the survey again.
+7. Admin users can go to http://localhost:3000/#/admin
+    - User can delete a feedback
+        - will get an "are you sure" message before deleting
+    - User can flag a feedback
     
 
 
