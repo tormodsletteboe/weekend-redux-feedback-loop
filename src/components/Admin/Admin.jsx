@@ -5,6 +5,14 @@ import { useParams } from 'react-router-dom';
 import Swal from 'sweetalert2';
 import DeleteIcon from '@mui/icons-material/Delete';
 import FlagIcon from '@mui/icons-material/Flag';
+import Button from '@mui/material/Button';
+import Table from '@mui/material/Table';
+import TableBody from '@mui/material/TableBody';
+import TableCell from '@mui/material/TableCell';
+import TableContainer from '@mui/material/TableContainer';
+import TableHead from '@mui/material/TableHead';
+import TableRow from '@mui/material/TableRow';
+import Paper from '@mui/material/Paper';
 
 function Admin() {
 
@@ -87,35 +95,38 @@ function Admin() {
     };
 
     return (
-        <table>
-            <thead>
-                <tr>
-                    <th>feeling</th>
-                    <th>understanding</th>
-                    <th>support</th>
-                    <th>comments</th>
-                    <th>flagged</th>
-                    <th>Delete</th>
-                </tr>
-            </thead>
-            <tbody>
-                {feedBacks.map((feedback) => (
-                    <tr key={feedback.id} data-id={feedback.id}>
+        <TableContainer component={Paper}>
+            <Table sx={{ minWidth: 650 }} aria-label="simple table">
+                <TableHead>
+                    <TableRow>
+                        <TableCell align="center">Feeling</TableCell>
+                        <TableCell align="center">Understanding</TableCell>
+                        <TableCell align="center">Support</TableCell>
+                        <TableCell align="center">Comments</TableCell>
+                        <TableCell align="center">Flagged</TableCell>
+                        <TableCell align="center">Delete</TableCell>
+                    </TableRow>
+                </TableHead>
+                <TableBody>
+                    {feedBacks.map((feedback) => (
+                        <TableRow key={feedback.id} data-id={feedback.id} sx={{ '&:last-child td, &:last-child th': { border: 0 } }}>
 
-                        <td>{feedback.feeling}</td>
-                        <td>{feedback.understanding}</td>
-                        <td>{feedback.support}</td>
-                        <td>{feedback.comments}</td>
-                        <td>{feedback.flagged.toString()}
-                            <button onClick={flagFeedBack}>🇳🇴</button>
-                        </td>
-                        <td>
-                             <DeleteIcon onClick={deleteFeedBack} />
-                        </td>
-                    </tr>
-                ))}
-            </tbody>
-        </table>
+                            <TableCell align="center">{feedback.feeling}</TableCell>
+                            <TableCell align="center">{feedback.understanding}</TableCell>
+                            <TableCell align="center">{feedback.support}</TableCell>
+                            <TableCell align="center">{feedback.comments}</TableCell>
+                            <TableCell align="center">
+                                <Button variant="contained" size="small" onClick={flagFeedBack} endIcon={<FlagIcon />}>{feedback.flagged.toString()}</Button>
+                            </TableCell>
+                            <TableCell align="center">
+                                <Button variant="contained" size="small" onClick={deleteFeedBack} endIcon={<DeleteIcon />}>DELETE</Button>
+
+                            </TableCell>
+                        </TableRow>
+                    ))}
+                </TableBody>
+            </Table>
+        </TableContainer>
 
 
     );
