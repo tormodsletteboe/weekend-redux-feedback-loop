@@ -10,7 +10,7 @@ import { createStore, combineReducers, applyMiddleware } from 'redux';
 import logger from 'redux-logger';
 
 
-//store shelves
+//start store shelves
 const feeling = (state = '0', action) => {
     switch (action.type) {
         case 'SET_FEELING':
@@ -50,6 +50,7 @@ const comment = (state = '', action) => {
     }
     return state;
 };
+//end store shelves
 
 //store combiner, allows for useSelector store dot operator
 const reduxStore = createStore(

@@ -18,7 +18,7 @@ router.get('/', (req, res) => {
 
 });
 
-//get specific feedback from database '/:id'
+
 
 //posts feedback to database '/'
 router.post('/', (req, res) => {

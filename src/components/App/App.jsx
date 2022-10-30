@@ -2,24 +2,31 @@ import React from 'react';
 import axios from 'axios';
 import './App.css';
 
+//App components
 import FeedBackComp from '../FeedBackComp/FeedBackComp';
 import Review from '../Review/Review';
 import Admin from '../Admin/Admin';
 import ThankYou from '../ThankYou/ThankYou';
+
 //router imports
 import { HashRouter as Router, Route, Link } from 'react-router-dom';
-import '@fontsource/roboto/300.css';
-import '@fontsource/roboto/400.css';
-import '@fontsource/roboto/500.css';
-import '@fontsource/roboto/700.css';
-import HorizontalLinearStepper from '../Stepper/Stepper.jsx'
 
+
+//sets up all the routes ,ie  
+// "/"
+// "/understanding"
+// "/support"
+// "/comments"
+// "/review"
+// "/admin"
+// "/thankyou"
 function App() {
 
-  //setup axios calls here POST, GET is in the Admin.jsx page
-  //POST ROUTE
+  //setup axios POST call here, passed to Reveiw page with a prop,
+  //other axios calls are in the Admin.jsx page
+
+  //POST ROUTE, after feedback has been reviewed and user clicks submit, this send the data to the database
   const postFeedBack = (feedBack) => {
-    console.log(feedBack.comments);
     axios({
       method: 'POST',
       url: '/feedbacks',
@@ -27,7 +34,6 @@ function App() {
     })
       .then((response) => {
         //no need to call getFeedBacks here, will call it when admin page loads
-        console.log(response.data);
       })
       .catch((error) => {
         console.error('POST /feedbacks is broken 😢', error);
@@ -41,21 +47,18 @@ function App() {
       <header className='App-header'>
         <h1 className='App-title'>Feedback!</h1>
         <h4>Don't forget it!</h4>
-        {/* <HorizontalLinearStepper /> */}
       </header>
       <Router>
         <Route path="/" exact>
           <FeedBackComp title='How are you feeling today?'
-            labelText='Feeling?'
             inputType='number'
-            pushAddress='/understanding'
+            pushAddress='/understanding' //which page to go to when next is clicked on this page
             dispatchAddr='SET_FEELING'
-            shelfname='feeling'
+            shelfname='feeling' //shelfname refers to the redux store variable
           />
         </Route>
         <Route path="/understanding" exact>
           <FeedBackComp title='How well are you understanding the content?'
-            labelText='Understanding?'
             inputType='number'
             pushAddress='/support'
             dispatchAddr='SET_UNDERSTANDING'
@@ -64,7 +67,6 @@ function App() {
         </Route>
         <Route path="/support" exact>
           <FeedBackComp title='How well are you being supported?'
-            labelText='Support?'
             inputType='number'
             pushAddress='/comments'
             dispatchAddr='SET_SUPPORT'
@@ -73,13 +75,13 @@ function App() {
         </Route>
         <Route path="/comments" exact>
           <FeedBackComp title='Any comments you want to leave?'
-            labelText='Comments'
             inputType='text'
             pushAddress='/review'
             dispatchAddr='SET_COMMENT'
             shelfname='comment'
           />
         </Route>
+        
         <Route path="/review" exact>
           <Review sendDataToDataBase={postFeedBack} />
         </Route>
