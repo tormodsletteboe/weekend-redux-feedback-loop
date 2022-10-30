@@ -116,7 +116,16 @@ function Admin() {
                             <TableCell align="center">{feedback.support}</TableCell>
                             <TableCell align="center">{feedback.comments}</TableCell>
                             <TableCell align="center">
-                                <Button variant="contained" size="small" onClick={flagFeedBack} endIcon={<FlagIcon />}>{feedback.flagged.toString()}</Button>
+                                {feedback.flagged ? <Button variant="contained"
+                                                            size="small"
+                                                            onClick={flagFeedBack} 
+                                                            endIcon={<FlagIcon />}>
+                                                    </Button> : 
+                                                    <Button variant="contained"
+                                                            size="small"
+                                                            onClick={flagFeedBack}> {feedback.flagged.toString()} 
+                                                    </Button>
+                                }
                             </TableCell>
                             <TableCell align="center">
                                 <Button variant="contained" size="small" onClick={deleteFeedBack} endIcon={<DeleteIcon />}>DELETE</Button>
