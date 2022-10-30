@@ -91,7 +91,7 @@ function FeedBackComp({ title, labelText, inputType, pushAddress, dispatchAddr, 
 
                     {inputType === 'text' ?
                         <TextField onChange={handleOnChange} type={inputType} value={feedBack} placeholder='leave a comment ...' ></TextField>
-                        : <TextField  helperText='Pick one'
+                        : <TextField  helperText='..'
                             onChange={handleOnChange}
                             value={feedBack}
                             label="Select"
