@@ -51,7 +51,6 @@ function App() {
       <Router>
         <Route path="/" exact>
           <FeedBackComp title='How are you feeling today?'
-            labelText='Feeling?'
             inputType='number'
             pushAddress='/understanding' //which page to go to when next is clicked on this page
             dispatchAddr='SET_FEELING'
@@ -60,7 +59,6 @@ function App() {
         </Route>
         <Route path="/understanding" exact>
           <FeedBackComp title='How well are you understanding the content?'
-            labelText='Understanding?'
             inputType='number'
             pushAddress='/support'
             dispatchAddr='SET_UNDERSTANDING'
@@ -69,7 +67,6 @@ function App() {
         </Route>
         <Route path="/support" exact>
           <FeedBackComp title='How well are you being supported?'
-            labelText='Support?'
             inputType='number'
             pushAddress='/comments'
             dispatchAddr='SET_SUPPORT'
@@ -78,7 +75,6 @@ function App() {
         </Route>
         <Route path="/comments" exact>
           <FeedBackComp title='Any comments you want to leave?'
-            labelText='Comments'
             inputType='text'
             pushAddress='/review'
             dispatchAddr='SET_COMMENT'

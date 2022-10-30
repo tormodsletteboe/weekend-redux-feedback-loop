@@ -2,6 +2,8 @@ import { useHistory } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
+
+//material ui imports
 import Card from '@mui/material/Card';
 import CardActions from '@mui/material/CardActions';
 import CardContent from '@mui/material/CardContent';
@@ -12,6 +14,7 @@ import TextField from '@mui/material/TextField';
 import Container from '@mui/material/Container';
 import MenuItem from '@mui/material/MenuItem';
 
+//menu item values used in the dropdown when Textfield is a numeric type
 const ranges = [
     {
         value: '0',
@@ -43,32 +46,43 @@ const ranges = [
     },
 ];
 
-function FeedBackComp({ title, labelText, inputType, pushAddress, dispatchAddr, shelfname }) {
+//reused for the first 4 pages , feeling, understanding, support, comment
+function FeedBackComp({ title, inputType, pushAddress, dispatchAddr, shelfname }) {
 
+    //feedback is based on shelfname, the selector uses the shelfname key to grab the correct "shelf" from the redux store
     const [feedBack, setFeedBack] = useState('');
     
 
     
-
+    //used by the browser
     const history = useHistory();
+
+    // used to send msg to redux store
     const dispatch = useDispatch();
+
+    //TODO:used by the browser to know where to go when user edits the url with keyboard???? maybe not sure
     const params = useParams();
+
+    //use shelfname key to grab correct feedback value
     const shelfFromStore = useSelector((store) => store[shelfname]);
 
+    //on load
     useEffect(() => {
         setFeedBack(shelfFromStore);
     }, [params.id])
 
+    //when user clicks NEXT
     const handleOnClick = () => {
-
-        // evt.preventDefault();
-        // console.log(feedBack);
+        //send data to redux store
         dispatch({
             type: dispatchAddr,
             payload: feedBack
         })
+        //go to next page
         history.push(pushAddress);
     }
+
+    //set the current local state feedback value
     const handleOnChange = (event) => {
         setFeedBack(event.target.value);
     };
@@ -88,7 +102,7 @@ function FeedBackComp({ title, labelText, inputType, pushAddress, dispatchAddr, 
                     </Typography>
                 </CardContent>
                 <CardActions sx={{ justifyContent: 'space-evenly' }}>
-
+                    {/* conditional render, if input is text type, its the comment page, otherwise its one of the others feeling/understanding/support */}
                     {inputType === 'text' ?
                         <TextField onChange={handleOnChange} type={inputType} value={feedBack} placeholder='leave a comment ...' ></TextField>
                         : <TextField  helperText='Choose a value 0 - 6'
@@ -97,6 +111,7 @@ function FeedBackComp({ title, labelText, inputType, pushAddress, dispatchAddr, 
                             label="Select"
                             select
                         >
+                            {/* add the values Bad, OK .... DUDE!! etc with corresponding numbers */}
                             {ranges.map((option) => (
                             <MenuItem key={option.value} value={option.value}>
                                 {option.label}
@@ -104,6 +119,7 @@ function FeedBackComp({ title, labelText, inputType, pushAddress, dispatchAddr, 
                         ))}
                         </TextField>
                         }
+                        {/* just a conditional render to make the button align with textfield when there is helpertext, ie marginBottom 24 */}
                     {inputType === 'text' ? <Button variant="contained" size='large' onClick={handleOnClick} >NEXT</Button> :
                         <Button style={{ marginBottom: 24 }} variant="contained" size='large' onClick={handleOnClick} >NEXT</Button>}
                     
