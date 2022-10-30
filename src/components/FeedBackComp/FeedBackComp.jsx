@@ -42,7 +42,7 @@ function FeedBackComp({ title, labelText, inputType, pushAddress, dispatchAddr, 
 
     return (
         <Container maxWidth="sm">
-            <Card sx={{ maxWidth: 345 }}>
+            <Card sx={{ maxWidth: 345, margin: 'auto' }}>
                 <CardMedia
                     component="img"
                     height="200"
