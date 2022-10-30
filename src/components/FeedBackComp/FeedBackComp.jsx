@@ -2,6 +2,14 @@ import { useHistory } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
+import Card from '@mui/material/Card';
+import CardActions from '@mui/material/CardActions';
+import CardContent from '@mui/material/CardContent';
+import CardMedia from '@mui/material/CardMedia';
+import Button from '@mui/material/Button';
+import Typography from '@mui/material/Typography';
+import FormControl from '@mui/material/FormControl';
+import TextField from '@mui/material/TextField';
 
 function FeedBackComp({ title, labelText, inputType, pushAddress, dispatchAddr, shelfname }) {
 
@@ -30,18 +38,38 @@ function FeedBackComp({ title, labelText, inputType, pushAddress, dispatchAddr, 
     };
 
     return (
-        <div className="ReuseComp">
-            <h1>{title}</h1>
-            <form onSubmit={handleOnClick}>
-                <label>{labelText}</label>
-                {inputType === 'text' ?
-                    <input onChange={handleOnChange} type={inputType} value={feedBack} placeholder='...' />
-                    : <input onChange={handleOnChange} type={inputType} value={feedBack} required min={0} max={6}/>}
-                <button type='submit'>NEXT</button>
-            </form>
+        <Card sx={{ maxWidth: 345 }}>
+            <CardMedia
+                component="img"
+                height="200"
+                image='https://picsum.photos/200/300'
+                alt="happy girl in sunshine"
+            />
+            <CardContent>
+                <Typography gutterBottom variant="h5" component="div">
+                    {title}
+                </Typography>
+            </CardContent>
+            <CardActions>
+                <Button size="small">{labelText}</Button>
+                <FormControl onSubmit={handleOnClick}>
+                    {inputType === 'text' ?
+                        <TextField onChange={handleOnChange} type={inputType} value={feedBack} placeholder='...' />
+                        : <TextField inputProps={{ inputMode: 'numeric', pattern: '[0-6]' }}
+                            onChange={handleOnChange}
+                            type={inputType}
+                            value={feedBack}
+                            required
+                            min={0}
+                            max={6}
+                        />}
+                    <Button variant="contained" size='small' type='submit'>NEXT</Button>
+                </FormControl>
+            </CardActions>
 
 
-        </div>
+
+        </Card>
     );
 }
 export default FeedBackComp;
