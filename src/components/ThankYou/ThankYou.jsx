@@ -1,5 +1,6 @@
 import {useHistory} from 'react-router-dom';
 import {useDispatch} from 'react-redux';
+import Button from '@mui/material/Button'
 
 function ThankYou() {
 
@@ -17,7 +18,7 @@ function ThankYou() {
 
         <div className="ReuseComp">
             <h1>Thank you!</h1>
-            <button onClick={handleOnClick}>Take new survey</button>
+            <Button variant="contained" size="small" onClick={handleOnClick}>Take new survey</Button>
         </div>
 
 
