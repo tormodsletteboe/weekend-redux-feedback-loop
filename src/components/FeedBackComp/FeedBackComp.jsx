@@ -94,7 +94,7 @@ function FeedBackComp({ title, inputType, pushAddress, dispatchAddr, shelfname }
                     component="img"
                     height="200"
                     src='https://picsum.photos/400/500'
-                    alt="picture of earth coast from space station"
+                    alt="image from picsum website"
                 />
                 <CardContent>
                     <Typography gutterBottom variant="h5" component="div">
