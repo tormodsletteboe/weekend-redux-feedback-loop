@@ -37,7 +37,7 @@ function Review({ sendDataToDataBase }) {
                 <CardMedia
                     component="img"
                     height="200"
-                    image='https://picsum.photos/200/200'
+                    image='https://picsum.photos/300/200'
                     alt="happy girl in sunshine"
                 />
                 <CardContent>

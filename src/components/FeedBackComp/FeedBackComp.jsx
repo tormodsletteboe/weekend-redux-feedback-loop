@@ -79,8 +79,8 @@ function FeedBackComp({ title, labelText, inputType, pushAddress, dispatchAddr, 
                 <CardMedia
                     component="img"
                     height="200"
-                    image='https://picsum.photos/200/200'
-                    alt="happy girl in sunshine"
+                    src='https://picsum.photos/400/500'
+                    alt="picture of earth coast from space station"
                 />
                 <CardContent>
                     <Typography gutterBottom variant="h5" component="div">
