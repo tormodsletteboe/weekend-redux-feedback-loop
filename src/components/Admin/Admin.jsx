@@ -3,6 +3,8 @@ import axios from 'axios';
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import Swal from 'sweetalert2';
+import DeleteIcon from '@mui/icons-material/Delete';
+import FlagIcon from '@mui/icons-material/Flag';
 
 function Admin() {
 
@@ -108,7 +110,7 @@ function Admin() {
                             <button onClick={flagFeedBack}>🇳🇴</button>
                         </td>
                         <td>
-                            <button onClick={deleteFeedBack} >💀</button>
+                             <DeleteIcon onClick={deleteFeedBack} />
                         </td>
                     </tr>
                 ))}

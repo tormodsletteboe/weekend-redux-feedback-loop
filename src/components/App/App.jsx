@@ -8,6 +8,11 @@ import Admin from '../Admin/Admin';
 import ThankYou from '../ThankYou/ThankYou';
 //router imports
 import { HashRouter as Router, Route, Link } from 'react-router-dom';
+import '@fontsource/roboto/300.css';
+import '@fontsource/roboto/400.css';
+import '@fontsource/roboto/500.css';
+import '@fontsource/roboto/700.css';
+import HorizontalLinearStepper from '../Stepper/Stepper.jsx'
 
 function App() {
 
@@ -36,6 +41,7 @@ function App() {
       <header className='App-header'>
         <h1 className='App-title'>Feedback!</h1>
         <h4>Don't forget it!</h4>
+        <HorizontalLinearStepper />
       </header>
       <Router>
         <Route path="/" exact>
